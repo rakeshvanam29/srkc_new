@@ -1,26 +1,52 @@
-// Responsive Navbar Toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-if(menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close menu when clicking on a link (mobile)
-  const navItems = navLinks.querySelectorAll('a');
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-
-  // Close menu when clicking outside (mobile)
-  document.addEventListener('click', (e) => {
-    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
+// Component Loader
+async function loadComponent(elementId, componentPath) {
+  try {
+    const response = await fetch(componentPath);
+    const html = await response.text();
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.innerHTML = html;
     }
-  });
+  } catch (error) {
+    console.error(`Error loading component ${componentPath}:`, error);
+  }
+}
+
+// Load header and footer components
+document.addEventListener('DOMContentLoaded', async function() {
+  // Load components
+  await loadComponent('header-placeholder', 'components/header.html');
+  await loadComponent('footer-placeholder', 'components/footer.html');
+  
+  // Initialize navigation after header is loaded
+  initializeNavigation();
+});
+
+// Navigation functionality
+function initializeNavigation() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if(menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link (mobile)
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+      }
+    });
+  }
 }
 
 // Contact Form (no backend, just UI feedback)
