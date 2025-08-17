@@ -125,16 +125,29 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+.track-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 .track-icon {
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
-.track-message h2 {
+.track-header h2 {
   color: var(--secondary);
-  margin-bottom: 1rem;
+  margin: 0;
   font-size: 1.8rem;
+}
+.track-message {
+  text-align: center;
+  max-width: 600px;
+}
+.track-message p {
+  margin: 0;
 }
 .track-alternative {
   background: #fff;
