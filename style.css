@@ -407,6 +407,69 @@ header {
   flex-shrink: 0;
 }
 
+/* Tab Layout Styles */
+.coverage-tabs {
+  margin-top: 2rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e9ecef;
+  overflow-x: auto;
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab-btn:hover {
+  color: var(--primary);
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.tab-content {
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Map Section Styles */
 .map-section {
   max-width: 900px;
@@ -569,19 +632,23 @@ footer {
   background: var(--footer-bg);
   color: var(--secondary);
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding: 1.5rem 0 0.5rem 0;
 }
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem 1rem 2rem;
-  gap: 2rem;
+  padding: 0 2rem;
+  align-items: start;
 }
-.footer-logo {
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-brand .footer-logo {
   font-size: 1.3rem;
   font-weight: bold;
   color: var(--primary);
@@ -589,36 +656,69 @@ footer {
   align-items: center;
   gap: 0.4rem;
 }
-.footer-logo i {
+.footer-brand .footer-logo i {
   color: var(--primary);
   font-size: 1.4rem;
 }
-.footer-logo span {
+.footer-brand .footer-logo span {
   color: var(--secondary);
 }
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.footer-tagline {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
 }
-.footer-links a {
+.footer-quick-links h4 {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.footer-quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}
+.footer-quick-links li {
+  margin: 0;
+}
+.footer-quick-links a {
   color: var(--secondary);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
-.footer-links a:hover {
+.footer-quick-links a:hover {
   color: var(--primary);
+}
+.footer-contact h4 {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 .footer-contact p {
   margin-bottom: 0.3rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer-contact i {
+  color: var(--primary);
+  width: 14px;
+  text-align: center;
 }
 .footer-bottom {
   text-align: center;
   padding: 0.8rem 0 0.4rem 0;
   font-size: 0.9rem;
   color: #888;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 1rem;
 }
 @media (max-width: 768px) {
   .hero-content h1 {
@@ -642,25 +742,31 @@ footer {
     max-width: 100%;
   }
   .footer-content {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 1.5rem;
     text-align: center;
-    gap: 1rem;
-    padding: 1rem;
   }
-  .footer-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  .coverage-states {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .state-coverage {
+    padding: 1.2rem;
+  }
+  .footer-quick-links ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    justify-items: center;
   }
   .footer-contact p {
-    margin-bottom: 0.2rem;
+    justify-content: center;
     font-size: 0.95rem;
   }
   .footer-bottom {
-    padding: 0.5rem 0 0.3rem 0;
+    padding: 0.6rem 0 0.3rem 0;
     font-size: 0.85rem;
+    margin-top: 0.8rem;
   }
   .overview, .about-section, .services-section, .industries-section, .contact-section, .track-shipment, .service-coverage {
     margin: 1.5rem auto;
@@ -738,6 +844,14 @@ footer {
   .overview h2, .about-section h1, .services-section h1, .industries-section h1, .contact-section h1 {
     font-size: 1.7rem;
   }
+  .why-choose-us, .company-values {
+    margin: 1.2rem auto;
+    padding: 1rem;
+  }
+  .why-choose-us h2, .company-values h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
   .contact-img-placeholder {
     max-width: 100%;
     padding: 2rem 1.5rem;
@@ -755,52 +869,144 @@ footer {
     justify-content: center;
     margin-bottom: 1rem;
   }
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
   }
-  .footer-logo {
+  .footer-brand .footer-logo {
     font-size: 1.1rem;
+    justify-content: center;
+  }
+  .footer-tagline {
+    font-size: 0.85rem;
+  }
+  .footer-quick-links ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+  .footer-quick-links a {
+    font-size: 0.85rem;
   }
   .footer-contact p {
-    margin-bottom: 0.1rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
   }
   .footer-bottom {
     padding: 0.4rem 0 0.2rem 0;
     font-size: 0.8rem;
+    margin-top: 0.6rem;
   }
   footer {
-    padding-top: 1rem;
+    padding: 1rem 0 0.3rem 0;
   }
   .coverage-states {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 0.8rem;
+  }
+  .state-coverage {
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
+  .state-coverage h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    gap: 0.4rem;
+  }
+  .state-coverage h3 i {
+    font-size: 0.9rem;
   }
   .cities-grid {
     gap: 0.3rem;
+    justify-content: flex-start;
   }
   .cities-grid span {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+  }
+  .service-coverage {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  .service-coverage h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .service-coverage > p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .coverage-note {
+    margin-top: 1rem;
+    padding: 0.8rem;
+  }
+  .coverage-note p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  .tab-buttons {
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+  .tab-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px 6px 0 0;
+  }
+  .coverage-tabs {
+    margin-top: 1.5rem;
   }
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
   }
   .feature {
-    padding: 1rem;
+    padding: 0.8rem;
+    text-align: left;
+  }
+  .feature i {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    float: left;
+    margin-right: 0.8rem;
+    margin-top: 0.2rem;
+  }
+  .feature h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+  .feature p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
   }
   .values-content {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
   }
   .value-item {
-    padding: 1rem;
+    padding: 0.8rem;
+    text-align: left;
   }
   .value-item h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .value-item h3 i {
+    font-size: 1.1rem;
+    color: var(--primary);
+  }
+  .value-item p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
   }
   .map-container iframe {
     height: 300px;

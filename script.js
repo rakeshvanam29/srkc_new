@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   // Initialize navigation after header is loaded
   initializeNavigation();
   
+  // Initialize tabs if on coverage page
+  initializeTabs();
+  
   // Highlight active navigation item
   highlightActiveNavItem();
 });
@@ -93,5 +96,54 @@ if(contactForm) {
     e.preventDefault();
     alert('Thank you for contacting SRKC Cargo! We will get back to you soon.');
     contactForm.reset();
+  });
+}
+
+// Tab functionality for coverage page
+function initializeTabs() {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  const tabButtonsContainer = document.querySelector('.tab-buttons');
+
+  if (tabButtons.length === 0) return; // Not on coverage page
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetTab = button.getAttribute('data-tab');
+
+      // Remove active class from all buttons and panels
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Add active class to clicked button and corresponding panel
+      button.classList.add('active');
+      const targetPanel = document.getElementById(targetTab);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+
+      // Scroll the active tab button into view for better visibility
+      if (tabButtonsContainer && button) {
+        const containerRect = tabButtonsContainer.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
+        
+        // Calculate if the button is outside the visible area
+        const isButtonOutOfView = buttonRect.left < containerRect.left || 
+                                  buttonRect.right > containerRect.right;
+        
+        if (isButtonOutOfView) {
+          // Calculate the scroll position to center the button
+          const containerCenter = containerRect.width / 2;
+          const buttonCenter = buttonRect.width / 2;
+          const scrollLeft = button.offsetLeft - containerCenter + buttonCenter;
+          
+          // Smooth scroll the tab container
+          tabButtonsContainer.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
   });
 }
