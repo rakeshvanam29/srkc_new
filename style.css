@@ -38,13 +38,8 @@ header {
   position: relative;
 }
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: #fff;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
   text-decoration: none;
   transition: opacity 0.2s ease;
   flex-shrink: 0;
@@ -53,14 +48,10 @@ header {
 .logo:hover {
   opacity: 0.9;
 }
-.logo i {
-  color: #DC2626;
-  font-size: 2rem;
-}
-.logo span {
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+.logo-image {
+  height: 80px;
+  width: auto;
+  max-width: 400px;
 }
 .nav-links {
   list-style: none;
@@ -719,9 +710,9 @@ footer {
   align-items: center;
   gap: 0.4rem;
 }
-.footer-brand .footer-logo i {
-  color: var(--primary);
-  font-size: 1.4rem;
+.footer-logo-image {
+  height: 70px;
+  width: auto;
 }
 .footer-brand .footer-logo span {
   color: var(--secondary);
@@ -795,6 +786,10 @@ footer {
   }
   .navbar {
     padding: 1rem;
+  }
+  .logo-image {
+    height: 60px;
+    max-width: 300px;
   }
   .services-list, .industries-list {
     flex-direction: column;
@@ -910,6 +905,10 @@ footer {
 @media (max-width: 480px) {
   .navbar {
     padding: 0.8rem;
+  }
+  .logo-image {
+    height: 45px;
+    max-width: 225px;
   }
   .nav-links li a {
     font-size: 0.95rem;

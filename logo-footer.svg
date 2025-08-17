@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">  
+  <!-- Main logo container -->
+  <g>
+    <!-- Truck illustration -->
+    <g transform="translate(15, 15)">
+      <!-- Truck body -->
+      <rect x="0" y="20" width="40" height="20" fill="#2C3E50" rx="2"/>
+      <!-- Truck cabin -->
+      <rect x="40" y="10" width="16" height="30" fill="#2C3E50" rx="2"/>
+      <!-- Windshield -->
+      <rect x="42" y="12" width="12" height="12" fill="#87CEEB"/>
+      <!-- Grille -->
+      <rect x="42" y="27" width="12" height="1.5" fill="#87CEEB"/>
+      <rect x="42" y="31" width="12" height="1" fill="#87CEEB"/>
+      <!-- Front bumper -->
+      <rect x="56" y="24" width="1.5" height="10" fill="#2C3E50"/>
+      
+      <!-- Wheels -->
+      <circle cx="10" cy="47" r="5" fill="#FF0000"/>
+      <circle cx="46" cy="47" r="5" fill="#FF0000"/>
+      <!-- Wheel centers -->
+      <circle cx="10" cy="47" r="2.5" fill="#FFFFFF"/>
+      <circle cx="46" cy="47" r="2.5" fill="#FFFFFF"/>
+      
+      <!-- Cargo details -->
+      <rect x="3" y="23" width="34" height="1" fill="#87CEEB" opacity="0.7"/>
+      <rect x="3" y="28" width="34" height="1" fill="#87CEEB" opacity="0.7"/>
+      <rect x="3" y="33" width="34" height="1" fill="#87CEEB" opacity="0.7"/>
+      
+      <!-- Speed lines for motion -->
+      <path d="M -8 16 L -2 16 M -6 20 L 0 20 M -8 24 L -2 24" stroke="#FF0000" stroke-width="1.2" opacity="0.8"/>
+    </g>
+    
+    <!-- Company name -->
+    <text x="85" y="30" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2C3E50">SRKC</text>
+    <text x="85" y="52" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#FF0000">CARGO</text>
+    
+    <!-- Company type -->
+    <text x="85" y="68" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#666666">PRIVATE LIMITED</text>
+    
+    <!-- Decorative element -->
+    <path d="M 85 56 L 180 56" stroke="#FF0000" stroke-width="1.2"/>
+    <circle cx="184" cy="56" r="1.5" fill="#FF0000"/>
+  </g>
+</svg>

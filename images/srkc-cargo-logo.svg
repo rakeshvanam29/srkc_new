@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Social media optimal size background -->
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  
+  <!-- Main logo centered -->
+  <g transform="translate(150, 200)">
+    <!-- Truck illustration -->
+    <g transform="scale(3)">
+      <!-- Truck body -->
+      <rect x="0" y="30" width="60" height="30" fill="#002060" rx="3"/>
+      <!-- Truck cabin -->
+      <rect x="60" y="15" width="25" height="45" fill="#002060" rx="3"/>
+      <!-- Windshield -->
+      <rect x="63" y="18" width="19" height="20" fill="#87CEEB"/>
+      <!-- Grille -->
+      <rect x="63" y="42" width="19" height="3" fill="#87CEEB"/>
+      <rect x="63" y="47" width="19" height="2" fill="#87CEEB"/>
+      <!-- Front bumper -->
+      <rect x="85" y="35" width="3" height="15" fill="#002060"/>
+      
+      <!-- Wheels -->
+      <circle cx="15" cy="70" r="8" fill="#DC2626"/>
+      <circle cx="70" cy="70" r="8" fill="#DC2626"/>
+      <!-- Wheel centers -->
+      <circle cx="15" cy="70" r="4" fill="#FFFFFF"/>
+      <circle cx="70" cy="70" r="4" fill="#FFFFFF"/>
+      
+      <!-- Cargo details -->
+      <rect x="5" y="35" width="50" height="2" fill="#87CEEB" opacity="0.7"/>
+      <rect x="5" y="42" width="50" height="2" fill="#87CEEB" opacity="0.7"/>
+      <rect x="5" y="49" width="50" height="2" fill="#87CEEB" opacity="0.7"/>
+    </g>
+    
+    <!-- Company name large -->
+    <text x="300" y="130" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#002060">SRKC CARGO</text>
+    <text x="300" y="170" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#666666">PRIVATE LIMITED</text>
+    
+    <!-- Tagline -->
+    <text x="300" y="220" font-family="Arial, sans-serif" font-size="42" font-weight="600" fill="#FF0000">Fast Routes, Trusted Hands</text>
+    
+    <!-- Services line -->
+    <text x="300" y="260" font-family="Arial, sans-serif" font-size="24" fill="#666666">Comprehensive Logistics Solutions Across India</text>
+  </g>
+</svg>
