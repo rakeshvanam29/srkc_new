@@ -489,11 +489,33 @@ header {
   gap: 1.5rem;
   margin-top: 2rem;
 }
-.contact-img {
+.contact-img-placeholder {
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 2px solid #e9ecef;
+}
+
+.contact-img-placeholder i {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contact-img-placeholder h3 {
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.contact-img-placeholder p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
 }
 .contact-details {
   margin-top: 1.2rem;
@@ -678,8 +700,15 @@ footer {
   .overview h2, .about-section h1, .services-section h1, .industries-section h1, .contact-section h1 {
     font-size: 1.7rem;
   }
-  .contact-img {
+  .contact-img-placeholder {
     max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+  .contact-img-placeholder i {
+    font-size: 3rem;
+  }
+  .contact-img-placeholder h3 {
+    font-size: 1.1rem;
   }
   .contact-bullets {
     text-align: center;
