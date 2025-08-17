@@ -60,6 +60,13 @@ header {
 .nav-links li a:hover {
   color: var(--primary);
 }
+.nav-links li a.active {
+  color: var(--primary);
+  background: rgba(255, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+}
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -589,6 +596,12 @@ footer {
   }
   .nav-links.active {
     display: flex;
+  }
+  .nav-links li a.active {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
   }
   .menu-toggle {
     display: block;

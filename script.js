@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   
   // Initialize navigation after header is loaded
   initializeNavigation();
+  
+  // Highlight active navigation item
+  highlightActiveNavItem();
 });
 
 // Navigation functionality
@@ -47,6 +50,40 @@ function initializeNavigation() {
       }
     });
   }
+}
+
+// Highlight active navigation item based on current page
+function highlightActiveNavItem() {
+  // Get current page filename
+  let currentPage = window.location.pathname.split('/').pop();
+  
+  // Handle index page and empty paths
+  if (currentPage === '' || currentPage === '/') {
+    currentPage = 'index.html';
+  }
+  
+  // Map of page files to navigation links
+  const pageMapping = {
+    'index.html': 'index.html',
+    'about.html': 'about.html',
+    'services.html': 'services.html',
+    'coverage.html': 'coverage.html',
+    'industries.html': 'industries.html',
+    'track.html': 'track.html',
+    'contact.html': 'contact.html'
+  };
+  
+  // Wait a bit for navigation to load, then highlight
+  setTimeout(() => {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href === pageMapping[currentPage]) {
+        link.classList.add('active');
+      }
+    });
+  }, 100);
 }
 
 // Contact Form (no backend, just UI feedback)
